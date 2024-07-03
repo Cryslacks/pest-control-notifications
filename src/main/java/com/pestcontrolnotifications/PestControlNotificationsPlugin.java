@@ -27,12 +27,6 @@ public class PestControlNotificationsPlugin extends Plugin
 	private Client client;
 
 	@Inject
-	private OverlayManager overlayManager;
-
-	@Inject
-	private PestControlNotificationsOverlay pestcontrolnotifications;
-
-	@Inject
 	private PestControlNotificationsConfig config;
 
 	@Inject
@@ -58,7 +52,6 @@ public class PestControlNotificationsPlugin extends Plugin
 	@Override
 	protected void startUp() throws Exception
 	{
-		overlayManager.add(pestcontrolnotifications);
 		this.notifyStart = config.notifyStart();
 		this.notifyEnd = config.notifyEnd();
 		this.notifyActivity = config.notifyActivity();
@@ -72,7 +65,6 @@ public class PestControlNotificationsPlugin extends Plugin
 	@Override
 	protected void shutDown() throws Exception
 	{
-		overlayManager.remove(pestcontrolnotifications);
 	}
 
 	@Subscribe
